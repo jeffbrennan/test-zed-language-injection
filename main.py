@@ -11,6 +11,7 @@ spark = SparkSession.builder.getOrCreate()
 
 # .sql (polars, pyspark, duckdb)
 df = spark.sql("SELECT col1, col2 FROM tbl")
+spark.read.text("catalog.schema.table")  # no false positive on .text()
 
 # .SQL (psycopg2)
 query = sql.SQL("SELECT col1, col2 FROM tbl")
@@ -26,7 +27,7 @@ with sqlite3.connect(":memory:") as con:
 
 # text (sqlalchemy)
 with engine.connect() as connection:
-    result = connection.execute(text("SELECT * FROM tbl"))
+    result = connection.execute(text("SELECT * FROM tbl"))  # text() works here
 
 # string vars
 # sql
