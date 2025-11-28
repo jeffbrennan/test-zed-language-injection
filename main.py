@@ -27,23 +27,27 @@ with sqlite3.connect(":memory:") as con:
 
 # text (sqlalchemy)
 with engine.connect() as connection:
-    result = connection.execute(text("SELECT * FROM tbl"))  # text() works here
+    result = connection.execute(
+        text("SELECT col1, col2 FROM tbl")
+    )  # text() works here
 
 # string vars
 # sql
-cmd = "SELECT * FROM tbl"
+cmd = "SELECT col1, col2 FROM tbl"
 
 # sql
 cmd = """
-    SELECT *
+    SELECT
+        col1,
+        col2
     FROM tbl
 """
 
 # do not inject sql
-cmd = "SELECT * FROM tbl"
+cmd = "SELECT col1, col2 FROM tbl"
 
 # abc sql def
-cmd = "SELECT * FROM tbl"
+cmd = "SELECT col1, col2 FROM tbl"
 
 # sql comment that should not be injected
-cmd = "SELECT * FROM tbl"
+cmd = "SELECT col1, col2 FROM tbl"
