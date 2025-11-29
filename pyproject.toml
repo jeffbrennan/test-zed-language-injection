@@ -1,5 +1,5 @@
 [project]
-name = "zed-sql-injection"
+name = "test-zed-language-injection"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
