@@ -156,7 +156,7 @@ wheels = [
 ]
 
 [[package]]
-name = "python-sql-injection"
+name = "zed-sql-injection"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
