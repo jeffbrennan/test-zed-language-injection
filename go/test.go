@@ -240,6 +240,12 @@ func test_css() {
     const _ =  /* css */ "body { margin: 0; }"
     const _ = /* css */ `body { margin: 0; }`
 
+    const cssCodes = /* css */ `
+    h1 {
+        color: #333;
+    }
+    `
+
 	// := assignment
 	test := /* css */ "body { margin: 0; }"
 	println(test)
