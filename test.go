@@ -9,9 +9,15 @@ func test_sql() {
     const _ =  /* sql */ "SELECT * FROM users"
     const _ = /* sql */ `SELECT id, name FROM products`
 
+    // var assignment
+    var _ = /* sql */ `SELECT id, name FROM products`
+    var _ = /* sql */ "SELECT id, name FROM products"
+
 	// := assignment
 	test := /* sql */ "SELECT * FROM users"
+	test2 := /* sql */ `SELECT * FROM users`
 	println(test)
+	println(test2)
 
 	// = assignment
     _ =  /* sql */ "SELECT * FROM users WHERE id = 1"
@@ -144,8 +150,6 @@ func test_xml() {
     }
 
 
-    // function argument
-    // (call_expression, raw_string_literal)
     testFunc(/* xml */ `
         <request>
             <action>update</action>
@@ -289,29 +293,29 @@ func test_lua() {
 
 func test_bash() {
     // const assignment
-    const _ =  /* bash */ "1,hello,2,world"
-    const _ = /* bash */ `1,hello,2,world`
+    const _ =  /* bash */ "echo 'hello world'"
+    const _ = /* bash */ `echo 'hello world'`
 
 	// := assignment
-	test := /* bash */ "1,hello,2,world"
+	test := /* bash */ "echo 'hello world'"
 	println(test)
 
 	// = assignment
-    _ =  /* bash */ "1,hello,2,world"
-	_ =  /* bash */ `1,hello,2,world`
+    _ =  /* bash */ "echo 'hello world'"
+	_ =  /* bash */ `echo 'hello world'`
 
 	// literal elements
-	_ = testStruct{ Field: /* bash */ "1,hello,2,world"}
-    _ = testStruct{ Field: /* bash */ `1,hello,2,world`}
+	_ = testStruct{ Field: /* bash */ "echo 'hello world'"}
+    _ = testStruct{ Field: /* bash */ `echo 'hello world'`}
 
-    testFunc(/* bash */ "1,hello,2,world")
-    testFunc(/* bash */ `1,hello,2,world`)
+    testFunc(/* bash */ "echo 'hello world'")
+    testFunc(/* bash */ `echo 'hello world'`)
 
-    const backtickString = /* bash */ `1,hello,2,world` // it's working with backticks
-    const quotedString = /* bash */ "1,hello,2,world"  // it's not working with quotes
+    const backtickString = /* bash */ `echo 'hello world'` // it's working with backticks
+    const quotedString = /* bash */ "echo 'hello world'"  // it's not working with quotes
 
-    const backtickStringNoHighlight = `1,hello,2,world`
-    const quotedStringNoHighlight = "1,hello,2,world"
+    const backtickStringNoHighlight = `echo 'hello world'`
+    const quotedStringNoHighlight = "echo 'hello world'"
 
 }
 
@@ -358,5 +362,4 @@ func main() {
     test_lua()
     test_bash()
     test_csv()
-
 }
