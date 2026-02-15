@@ -9,6 +9,12 @@ func test_sql() {
     const _ =  /* sql */ "SELECT * FROM users"
     const _ = /* sql */ `SELECT id, name FROM products`
 
+    const _ =  /* sql */`
+        SELECT
+            col1, col2
+        FROM USERS ORDER BY 1
+    `
+
     // var assignment
     var _ = /* sql */ `SELECT id, name FROM products`
     var _ = /* sql */ "SELECT id, name FROM products"
@@ -30,8 +36,8 @@ func test_sql() {
     testFunc(/* sql */ "SELECT * FROM users")
     testFunc(/* sql */ `SELECT * FROM users`)
 
-    const backtickString = /* sql */ `SELECT * FROM users;` // it's working with backticks
-    const quotedString = /* sql */ "SELECT * FROM users;"  // it's not working with quotes
+    const backtickString = /* sql */ `SELECT * FROM users;`
+    const quotedString = /* sql */ "SELECT * FROM users;"
 
     const backtickStringNoHighlight = `SELECT * FROM users;`
     const quotedStringNoHighlight = "SELECT * FROM users;"
@@ -207,6 +213,19 @@ func test_html() {
     `)
 }
 
+func test_python() {
+    const _ = /* py */ `
+    def hello_world():
+
+    `
+
+    const _ = /* py */ `
+    def hello_world():
+
+    `
+
+}
+
 func test_javascript() {
     // const assignment
     const _ =  /* js */ "console.log('hello world')"
@@ -261,8 +280,8 @@ func test_css() {
     testFunc(/* css */ "body { margin: 0; }")
     testFunc(/* css */ `body { margin: 0; }`)
 
-    const backtickString = /* css */ `body { margin: 0; }` // it's working with backticks
-    const quotedString = /* css */ "body { margin: 0; }"  // it's not working with quotes
+    const backtickString = /* css */ `body { margin: 0; }`
+    const quotedString = /* css */ "body { margin: 0; }"
 
     const backtickStringNoHighlight = `body { margin: 0; }`
     const quotedStringNoHighlight = "body { margin: 0; }"
